@@ -1,0 +1,12 @@
+CC=gcc
+CFLAGS=-std=c99 -Wall -Werror -Wsign-compare -Wpointer-arith -Wswitch-default -Wswitch-enum -Wmissing-declarations -Wold-style-definition -Wstrict-prototypes -Wshadow -I .
+
+all: blowfish.o blowfish_const.o blowfish_cfb64.o
+
+blowfish: blowfish.o blowfish_const.o
+
+blowfish_cfb64: blowfish blowfish_cfb64.o
+
+clean:
+	@rm -f blowfish.o blowfish_const.o blowfish_cfb64.o
+
